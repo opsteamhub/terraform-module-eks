@@ -33,7 +33,7 @@ resource "kubernetes_cluster_role_binding" "ingress" {
   role_ref {
     api_group = "rbac.authorization.k8s.io"
     kind      = "ClusterRole"
-    name      = kubernetes_cluster_role.ingress.metadata[0].name
+    name      = kubernetes_cluster_role.ingress[0].metadata[0].name
   }
   subject {
     kind      = "ServiceAccount"
