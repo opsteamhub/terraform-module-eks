@@ -8,6 +8,4 @@ data "aws_iam_openid_connect_provider" "main_arn" {
   arn = aws_iam_openid_connect_provider.main.arn
 }
 
-data "tls_certificate" "main" {
-  url = data.aws_eks_cluster.cluster.identity[0].oidc[0].issuer
-}
+
