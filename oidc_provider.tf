@@ -8,4 +8,10 @@ data "aws_iam_openid_connect_provider" "main_arn" {
   arn = aws_iam_openid_connect_provider.main.arn
 }
 
+data "aws_eks_cluster" "cluster" {
+  name = aws_eks_cluster.eks_cluster.id
+}
 
+data "aws_eks_cluster_auth" "cluster" {
+  name = aws_eks_cluster.eks_cluster.id
+}
