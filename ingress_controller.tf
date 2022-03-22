@@ -29,7 +29,7 @@ resource "kubernetes_deployment" "ingress" {
       spec {
         dns_policy                       = "ClusterFirst"
         restart_policy                   = "Always"
-        service_account_name             = kubernetes_service_account.ingress.metadata[0].name
+        service_account_name             = kubernetes_service_account.ingress[0].metadata[0].name
         termination_grace_period_seconds = 60
 
         container {
@@ -47,7 +47,7 @@ resource "kubernetes_deployment" "ingress" {
 
           volume_mount {
             mount_path = "/var/run/secrets/kubernetes.io/serviceaccount"
-            name       = kubernetes_service_account.ingress.default_secret_name
+            name       = kubernetes_service_account.ingress[0].default_secret_name
             read_only  = true
           }
 
@@ -82,10 +82,10 @@ resource "kubernetes_deployment" "ingress" {
         }
 
         volume {
-          name = kubernetes_service_account.ingress.default_secret_name
+          name = kubernetes_service_account.ingress[0].default_secret_name
 
           secret {
-            secret_name = kubernetes_service_account.ingress.default_secret_name
+            secret_name = kubernetes_service_account.ingress[0].default_secret_name
           }
         }
       }
