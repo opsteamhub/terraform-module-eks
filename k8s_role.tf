@@ -37,8 +37,8 @@ resource "kubernetes_cluster_role_binding" "ingress" {
   }
   subject {
     kind      = "ServiceAccount"
-    name      = kubernetes_service_account.ingress.metadata[0].name
-    namespace = kubernetes_service_account.ingress.metadata[0].namespace
+    name      = kubernetes_service_account.ingress[0].metadata[0].name
+    namespace = kubernetes_service_account.ingress[0].metadata[0].namespace
   }
 
   depends_on = [kubernetes_cluster_role.ingress]
