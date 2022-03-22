@@ -45,7 +45,8 @@ resource "kubernetes_cluster_role_binding" "ingress" {
 }
 
 resource "kubernetes_service_account" "ingress" {
-  automount_service_account_token = true
+  count                = var.create_ingress ? 1 : 0
+  automount_service_account_token = true  
   metadata {
     name      = "alb-ingress-controller"
     namespace = "kube-system"
