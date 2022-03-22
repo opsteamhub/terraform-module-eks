@@ -1,4 +1,6 @@
 resource "kubernetes_cluster_role" "ingress" {
+  count                = var.create_ingress ? 1 : 0
+
   metadata {
     name = "alb-ingress-controller"
     labels = {

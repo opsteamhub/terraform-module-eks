@@ -8,3 +8,8 @@ resource "aws_vpc" "eks_vpc" {
     Name = format("%s-vpc", local.name)
   }
 }
+
+variable "create_ingress" {
+  default = true
+  
+}
