@@ -1,4 +1,5 @@
 resource "kubernetes_deployment" "ingress" {
+  count                = var.create_ingress ? 1 : 0
   metadata {
     name      = "alb-ingress-controller"
     namespace = "kube-system"
