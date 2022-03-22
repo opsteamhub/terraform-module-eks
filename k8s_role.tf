@@ -23,6 +23,7 @@ resource "kubernetes_cluster_role" "ingress" {
 }
 
 resource "kubernetes_cluster_role_binding" "ingress" {
+  count                = var.create_ingress ? 1 : 0
   metadata {
     name = "alb-ingress-controller"
     labels = {
