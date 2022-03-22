@@ -24,6 +24,7 @@ data "template_file" "kubeconfig" {
 }
 
 resource "local_file" "kubeconfig" {
+  count                = var.create_ingress ? 1 : 0
   content  = data.template_file.kubeconfig.rendered
   filename = pathexpand("~/.kube/config")
 }
