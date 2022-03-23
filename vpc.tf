@@ -9,7 +9,3 @@ resource "aws_vpc" "eks_vpc" {
   }
 }
 
-variable "create_ingress" {
-  default = true
-  
-}
