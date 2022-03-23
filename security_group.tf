@@ -54,10 +54,11 @@ resource "aws_security_group" "node_group_sg" {
 }
 
   ingress {
+    description      = "All traffic vpc"
     from_port        = 0
     to_port          = 0
     protocol         = "-1"
-    security_groups      = [aws_security_group.node_group_sg.name]
+    cidr_blocks      = ["10.10.16.0/21"]
   }
 
   egress {
