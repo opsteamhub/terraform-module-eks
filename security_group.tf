@@ -30,12 +30,20 @@ resource "aws_security_group" "node_group_sg" {
   }  
 
   ingress {
-    description = "Vault Secrets Webhook"
+    description = "TCP Vault Secrets Webhook"
     from_port   = 8443
     to_port     = 8443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }  
+
+  ingress {
+    description = "UDP Vault Secrets Webhook"
+    from_port   = 8443
+    to_port     = 8443
+    protocol    = "udp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }   
 
   ingress {
   description = "Get Logs"
