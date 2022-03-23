@@ -57,8 +57,7 @@ resource "aws_security_group" "node_group_sg" {
     from_port        = 0
     to_port          = 0
     protocol         = "-1"
-    cidr_blocks      = [aws_security_group.node_group_sg.id]
-    ipv6_cidr_blocks = ["::/0"]
+    security_groups      = [aws_security_group.node_group_sg.name]
   }
 
   egress {
@@ -66,7 +65,6 @@ resource "aws_security_group" "node_group_sg" {
     to_port          = 0
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
   }
 
 
