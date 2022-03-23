@@ -4,7 +4,7 @@ resource "aws_eks_cluster" "eks_cluster" {
   role_arn                = aws_iam_role.eks_master_role.arn
   version                 = var.kubernetes_version
    
-  #enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
+  enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
 
   vpc_config {
     endpoint_private_access = var.endpoint_private_access 
