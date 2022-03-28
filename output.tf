@@ -15,9 +15,9 @@ output "cluster_name" {
 }
 
 output "launch_template_name" {
-    value = aws_launch_template.node.name
+  value = aws_launch_template.node.name
 }
 
 output "launch_template_version" {
-    value = aws_launch_template.node.latest_version
+  value = aws_launch_template.node.latest_version
 }
