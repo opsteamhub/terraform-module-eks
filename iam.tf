@@ -79,7 +79,8 @@ resource "aws_iam_policy" "ALBIngressControllerIAMPolicy" {
       "Action": [
         "acm:DescribeCertificate",
         "acm:ListCertificates",
-        "acm:GetCertificate"
+        "acm:GetCertificate",
+        "wafv2:GetWebACLForResource"
       ],
       "Resource": "*"
     },

@@ -58,7 +58,7 @@ resource "aws_security_group" "node_group_sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["10.10.16.0/21"]
+    cidr_blocks = [aws_vpc.eks_vpc.cidr_block]
   }
 
   egress {
