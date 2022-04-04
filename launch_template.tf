@@ -1,24 +1,10 @@
-data "aws_ami" "amazon_linux" {
-  most_recent = true
-
-  filter {
-    name = "name"
-
-    values = [
-      "amzn-ami-hvm-*-x86_64-gp2",
-    ]
-  }
-
-  owners = ["amazon"]
-}
-
 resource "aws_launch_template" "node" {
 
   name_prefix            = join("-", ["lt", local.name])
   update_default_version = true
 
   ebs_optimized = var.ebs_optimized
-  image_id      = data.aws_ami.amazon_linux.id
+  image_id      = var.ami_id
 
   instance_type = var.instance_types
 
