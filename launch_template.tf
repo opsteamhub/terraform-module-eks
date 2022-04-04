@@ -9,13 +9,7 @@ data "aws_ami" "amazon_linux" {
     ]
   }
 
-  filter {
-    name = "owner-alias"
-
-    values = [
-      "amazon",
-    ]
-  }
+  owners = ["amazon"]
 }
 
 resource "aws_launch_template" "node" {
